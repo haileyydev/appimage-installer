@@ -31,5 +31,5 @@ Follow this guide to build the app from source
 ## Usage
 Use this command to install an appimage:
 ```bash
-sudo appimage_installer app.AppImage
+sudo appimage-installer app.AppImage
 ```
