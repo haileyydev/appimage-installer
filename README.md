@@ -1,13 +1,9 @@
 # Appimage Installer  
 This is a simple appimage installer written in rust. It extracts appimages, copies them to the opt directory, constructs a desktop entry for them and moves the icon to the system.
 
-## Usage
-To install an appimage run this command:
-```bash
-sudo appimage_installer app.AppImage
-```
-
 ## Installation  
+
+You can install appimage installer by downloading the precompiled binary from github releases or building it yourself.
 
 ### From Github Releases
 
@@ -21,3 +17,9 @@ sudo appimage_installer app.AppImage
 2. Enter the directory: `cd appimage-installer`  
 3. Compile the project: `cargo build --release`
 4. Install it system wide: `sudo cp target/release/appimage-installer /usr/local/bin`
+
+## Usage
+To install an appimage run this command:
+```bash
+sudo appimage_installer app.AppImage
+```
