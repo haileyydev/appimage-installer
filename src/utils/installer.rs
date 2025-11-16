@@ -91,7 +91,7 @@ pub fn install_appimage(path: &Path) -> Result<String, String> {
                 desktop_entry.push_str("[Desktop Entry]\n");
 
                 // for every entry in the original desktop file copy it to the new one
-                for (key, value) in parsed_desktop_file.into_iter() {
+                for (key, value) in &parsed_desktop_file {
                     match key.as_str() {
                         // if its the Exec option we need to change the path
                         "Exec" => {
@@ -102,6 +102,12 @@ pub fn install_appimage(path: &Path) -> Result<String, String> {
                         }
                     }
                 }
+
+                println!("Writing desktop entry");
+
+                let new_desktop_file = PathBuf::from(format!("/usr/share/applications/{}.desktop", name));
+                fs::write(new_desktop_file, desktop_entry).map_err(|e| e.to_string())?;
+
                 println!("Copying app icon to system");
 
                 // move the icon to the system icon directory
